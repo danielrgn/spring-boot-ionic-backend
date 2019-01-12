@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
@@ -13,8 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import org.apache.el.stream.Optional;
 
 import com.danielrgn.cursomc.domain.enums.TipoCliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -53,7 +52,7 @@ public class Cliente implements Serializable{
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipoCliente = (tipoCliente == null) ? null : tipoCliente.getId();
+		this.tipoCliente = Optional.ofNullable(tipoCliente).isPresent() ? tipoCliente.getId() : null;
 	}
 
 	public Integer getId() {

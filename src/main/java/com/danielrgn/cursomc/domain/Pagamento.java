@@ -1,6 +1,7 @@
 package com.danielrgn.cursomc.domain;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public abstract class Pagamento implements Serializable {
 	public Pagamento(Integer id, EstadoPagamento estadoPagamento, Pedido pedido) {
 		super();
 		this.id = id;
-		this.estadoPagamento = estadoPagamento.getId();
+		this.estadoPagamento = Optional.ofNullable(estadoPagamento).isPresent() ? estadoPagamento.getId() : null;
 		this.pedido = pedido;
 	}
 

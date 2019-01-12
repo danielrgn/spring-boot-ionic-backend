@@ -29,18 +29,16 @@ public class ClienteService {
 				", Tipo: " + Cliente.class.getName()));
 	}
 	
-
 	public Cliente update(Cliente obj) {
 		Cliente clienteObj = find(obj.getId());
-		updateCliente(obj, clienteObj);
+		updateData(obj, clienteObj);
 		return clienteRepository.save(clienteObj);
 	}
 
-	private void updateCliente(Cliente obj, Cliente clienteObj) {
+	private void updateData(Cliente obj, Cliente clienteObj) {
 		clienteObj.setNome(obj.getNome()); 
 		clienteObj.setEmail(obj.getEmail());
 	}
-
 
 	public void delete(Integer id) {
 		try {
