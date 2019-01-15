@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.danielrgn.cursomc.domain.Categoria;
+import com.danielrgn.cursomc.services.validation.ClienteUpdate;
 
 public class CategoriaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
