@@ -43,8 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	};
 	
 	private static final String[] PUBLIC_MACHERS_POST = {
-			"/clientes/**"
-		};
+		"/clientes/**",
+		"/auth/forgot/**"
+	};
 	
 	private static final String[] PUBLIC_MACHERS = {
 		"/h2-console/**",
